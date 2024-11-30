@@ -1,6 +1,26 @@
+using AnimeAPI.Models;
+using AnimeAPI.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
+//cors
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:3000")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
+
+
 // Add services to the container.
+//anime mongodb database 
+builder.Services.Configure<AnimeDatabaseSettings>(builder.Configuration.GetSection("AnimeDatabase"));
+
+builder.Services.AddSingleton<AnimesService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -19,6 +39,9 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+//cors
+app.UseCors();
 
 app.MapControllers();
 

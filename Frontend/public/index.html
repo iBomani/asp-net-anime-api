@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anime List</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../src/components/modal.js" defer></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Zen+Tokyo+Zoo&display=swap');
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    .anime-title {
+      font-family: 'Zen Tokyo Zoo', cursive;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col items-center">
+
+  <!-- Header -->
+  <header class="w-full bg-gray-900 text-white py-8 shadow-md">
+    <div class="container mx-auto text-center">
+      <div class="flex justify-center space-x-4">
+        <!-- Search Bar -->
+        <div class="relative">
+            <input type="text" placeholder="Search..." class="bg-white text-black px-4 py-2 rounded-full shadow-md focus:outline-none w-64 transition">
+        </div>
+        <!-- Random anime button -->
+        <button class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded-full shadow-md focus:outline-none transition">
+          Select Random Anime
+        </button>
+        <!-- Quick delete button -->
+        <button class="bg-rose-500 hover:bg-rose-600 text-white px-4 py-2 rounded-full shadow-md focus:outline-none transition">
+          Quick Delete
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-8">
+    <!-- Add Anime Button -->
+    <div class="flex justify-end mb-6">
+      <button class="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-full shadow-md focus:outline-none transition" id="show-modal-btn">
+        + Add Anime
+      </button>
+    </div>
+
+    <!-- Anime Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Card Template -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition">
+            <img src="https://via.placeholder.com/300x400" alt="Anime Poster" class="w-full h-48 object-cover">
+            <div class="p-4">
+            <h2 class="text-xl font-semibold text-gray-800">Attack on Titan</h2>
+            <p class="text-gray-600 text-sm">Genre: Action, Drama</p>
+            <p class="text-gray-600 text-sm">Status: Watching</p>
+            <div class="mt-4 flex justify-between items-center">
+                <span class="text-teal-500 font-bold">Episodes: 12 / 25</span>
+                <button class="text-indigo-500 hover:text-indigo-700">Edit</button>
+            </div>
+            </div>
+        </div>
+      <!-- Card Template -->
+    </div>
+  </main>
+
+
+
+     <!-- Background Overlay -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-40 modal hidden"></div>
+
+    <!-- Modal -->
+    <div class="fixed inset-0 flex justify-center items-center z-50 modal hidden">
+        <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full relative">
+            <button class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 focus:outline-none transition bg-transparent text-black rounded-full w-8 h-8 flex items-center justify-center border border-gray-300" id="close-modal-btn">✕</button>
+            <h2 class="text-3xl font-semibold text-center mb-6">Add Anime</h2>
+            <form id="anime-form" action="#" method="post">
+                <div class="space-y-4">
+                    <label for="anime-title" class="block text-gray-700 font-semibold">Title</label>
+                    <input type="text" id="anime-title" name="title" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+
+                    <label for="anime-episodes" class="block text-gray-700 font-semibold">Episodes</label>
+                    <input type="number" id="anime-episodes" name="episodes" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+
+                    <label for="anime-status" class="block text-gray-700 font-semibold">Status</label>
+                    <select id="anime-status" name="status" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="Planned to watch">Planned to watch</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Watching">Watching</option>
+                        <option value="On-Hold">On-Hold</option>
+                        <option value="Dropped">Dropped</option>
+                    </select>
+
+                    <label for="anime-rating" class="block text-gray-700 font-semibold">My Rating</label>
+                    <input type="number" id="anime-rating" name="rating" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" min="1" max="10">
+                </div>
+
+                <div class="mt-6 flex justify-end space-x-4">
+                    <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">
+                        Add Anime
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
