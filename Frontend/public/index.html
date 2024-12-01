@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anime List</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="../src/components/modal.js" defer></script>
+  <script src="/src/components/modal.js" defer></script>
+  <script src="/src/scripts/getAnimes.js" defer></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Zen+Tokyo+Zoo&display=swap');
     body {
@@ -48,8 +49,8 @@
     </div>
 
     <!-- Anime Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Card Template -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 anime-list-content">
+      <!-- Card Template
         <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition">
             <img src="https://via.placeholder.com/300x400" alt="Anime Poster" class="w-full h-48 object-cover">
             <div class="p-4">
@@ -62,7 +63,7 @@
             </div>
             </div>
         </div>
-      <!-- Card Template -->
+       Card Template -->
     </div>
   </main>
 
