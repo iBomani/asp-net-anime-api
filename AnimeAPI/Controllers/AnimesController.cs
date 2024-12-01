@@ -46,12 +46,12 @@ public class AnimesController : ControllerBase
 
     //kepek miatt
     [HttpPost("upload")]
-    public async Task<IActionResult> UploadAnime([FromForm] IFormFile imageFile, [FromForm] string title, [FromForm] int episodes, [FromForm] string status, [FromForm] int rating)
+    public async Task<IActionResult> UploadAnime([FromForm] IFormFile imagePath, [FromForm] string title, [FromForm] int episodes, [FromForm] string status, [FromForm] int rating)
     {
-        if (imageFile == null)
+        if (imagePath == null)
         {
             Console.WriteLine("imageFile is null");
-            throw new ArgumentNullException(nameof(imageFile), "Image File cannot be null.");
+            throw new ArgumentNullException(nameof(imagePath), "Image File cannot be null.");
         }
 
         if (_gridFSBucket == null)
@@ -61,7 +61,7 @@ public class AnimesController : ControllerBase
         }
 
         // Save the image file to GridFS
-        var fileId = await _gridFSBucket.UploadFromStreamAsync(imageFile.FileName, imageFile.OpenReadStream());
+        var fileId = await _gridFSBucket.UploadFromStreamAsync(imagePath.FileName, imagePath.OpenReadStream());
 
         // Create a new anime object and set its properties
         var anime = new Animes
