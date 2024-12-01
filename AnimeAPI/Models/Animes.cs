@@ -19,5 +19,8 @@ namespace AnimeAPI.Models
         [BsonElement("rating")]
         [Range(1, 10)]
         public int Rating { get; set; }
+
+        [BsonElement("imagePath")]
+        public string? ImagePath { get; set; }
     }
 }
