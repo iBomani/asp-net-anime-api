@@ -1,6 +1,7 @@
 ﻿using AnimeAPI.Models;
 using AnimeAPI.Services;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
 using MongoDB.Driver.GridFS;
 
 namespace AnimeAPI.Controllers;
@@ -34,6 +35,19 @@ public class AnimesController : ControllerBase
         }
 
         return anime;
+    }
+
+    [HttpGet("image/{fileId}")]
+    public async Task<IActionResult> GetImage(string fileId)
+    {
+        if (_gridFSBucket == null)
+        {
+            Console.WriteLine("_gridFSBucket is null");
+            throw new InvalidOperationException("gridfsbucket is not initialized");
+        }
+
+        var fileStream = await _gridFSBucket.OpenDownloadStreamAsync(new ObjectId(fileId));
+        return File(fileStream, "image/jpeg");
     }
 
     [HttpPost]

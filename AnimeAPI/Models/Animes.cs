@@ -22,5 +22,6 @@ namespace AnimeAPI.Models
 
         [BsonElement("imagePath")]
         public string? ImagePath { get; set; }
+
     }
 }

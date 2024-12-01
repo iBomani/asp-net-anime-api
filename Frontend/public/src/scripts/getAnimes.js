@@ -6,11 +6,15 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(response => response.json())
     .then(animes => {
         animes.forEach(anime => {
+            console.log(anime);
+
             const animeCard = document.createElement('div');
             animeCard.classList.add('bg-white', 'rounded-xl', 'shadow-lg', 'overflow-hidden', 'transform', 'hover:scale-105', 'transition', 'm-4');
 
+            image = getImage(anime);
+
             animeCard.innerHTML = `
-                <img src="https://via.placeholder.com/300x400" alt="Anime Poster" class="w-full h-48 object-cover">
+                <img src="${image}" alt="Anime Poster" class="w-full h-48 object-cover">
                 <div class="p-4">
                 <h2 class="text-xl font-semibold text-gray-800">${anime.title}</h2>
                 <p class="text-gray-600 text-sm">Status: ${anime.status}</p>
@@ -27,3 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(error => console.error('Error fetching animes:', error));
 });
+
+function getImage(anime) {
+    if (anime.imagePath) {
+        return `https://localhost:7024/Animes/image/${anime.imagePath}`;
+    } else {
+        return 'https://via.placeholder.com/300x400';
+    }
+}

@@ -111,6 +111,22 @@
   },
   {
     "ContainingType": "AnimeAPI.Controllers.AnimesController",
+    "Method": "GetImage",
+    "RelativePath": "Animes/image/{fileId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fileId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimeAPI.Controllers.AnimesController",
     "Method": "UploadAnime",
     "RelativePath": "Animes/upload",
     "HttpMethod": "POST",
