@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const animeCard = document.createElement('div');
             animeCard.classList.add('bg-white', 'rounded-xl', 'shadow-lg', 'overflow-hidden', 'transform', 'hover:scale-105', 'transition', 'm-4');
+            animeCard.dataset.id = anime.id;
 
             image = getImage(anime);
 
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p class="text-gray-600 text-sm">Status: ${anime.status}</p>
                 <div class="mt-4 flex justify-between items-center">
                     <span class="text-teal-500 font-bold">Episodes: ${anime.episodes}</span>
-                    <button class="text-indigo-500 hover:text-indigo-700">Edit</button>
+                    <button class="text-indigo-500 hover:text-indigo-700" id="show-edit-modal-btn">Edit</button>
                 </div>
                 </div>
             `

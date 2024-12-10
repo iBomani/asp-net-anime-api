@@ -71,9 +71,9 @@
 
 
      <!-- Background Overlay -->
-    <div class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-40 modal hidden"></div>
+    <div class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-40 modal hidden" id="blur"></div>
 
-    <!-- Modal -->
+    <!-- Add Anime Modal -->
     <div class="fixed inset-0 flex justify-center items-center z-50 modal hidden">
         <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full relative">
             <button class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 focus:outline-none transition bg-transparent text-black rounded-full w-8 h-8 flex items-center justify-center border border-gray-300" id="close-modal-btn">✕</button>
@@ -105,6 +105,7 @@
                     </div>
                     
                     <input type="file" id="anime-image" name="imagePath" class="hidden w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm hover:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 file:mr-2 file:py-2 file:rounded-lg file:px-4 file:bg-blue-100 file:text-blue-700">
+                    
                 </div>
 
                 <div class="mt-6 flex justify-end space-x-4">
@@ -115,6 +116,14 @@
             </form>
         </div>
     </div>
+
+    <!-- Edit Anime Modal -->
+    <div class="fixed inset-0 flex justify-center items-center z-50 edit-modal hidden">
+      <button class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 focus:outline-none transition bg-transparent text-black rounded-full w-8 h-8 flex items-center justify-center border border-gray-300" id="close-edit-modal-btn">✕</button>
+      <h2 class="text-3xl font-semibold text-center mb-6">Edit Anime</h2>
+     
+    </div>
+
 
     <script>
       const checkBox = document.getElementById('default-checkbox');
@@ -130,5 +139,9 @@
         }
       });
     </script>
+
+
+    
+  <script src="/src/scripts/putAnime.js"></script>
 </body>
 </html>

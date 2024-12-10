@@ -1,3 +1,4 @@
+
 document.getElementById('anime-form').addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -32,4 +33,7 @@ document.getElementById('anime-form').addEventListener('submit', async (event) =
             })
         });
     }
+
+    document.getElementById('anime-form').reset();
+    window.location.reload();
 });
