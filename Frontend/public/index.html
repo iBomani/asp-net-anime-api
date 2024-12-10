@@ -8,6 +8,9 @@
   <script src="/src/components/modal.js" defer></script>
   <script src="/src/scripts/getAnimes.js" defer></script>
   <script src="/src/scripts/postAnime.js" defer></script>
+  <script src="/src/scripts/putAnime.js" defer></script>
+  <script src="/src/scripts/deleteAnime.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Zen+Tokyo+Zoo&display=swap');
     body {
@@ -26,16 +29,8 @@
       <div class="flex justify-center space-x-4">
         <!-- Search Bar -->
         <div class="relative">
-            <input type="text" placeholder="Search..." class="bg-white text-black px-4 py-2 rounded-full shadow-md focus:outline-none w-64 transition">
+            <input type="text" placeholder="Search..." class="bg-white text-black px-4 py-2 rounded-full shadow-md focus:outline-none w-64 transition" id="search-input">
         </div>
-        <!-- Random anime button -->
-        <button class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded-full shadow-md focus:outline-none transition">
-          Select Random Anime
-        </button>
-        <!-- Quick delete button -->
-        <button class="bg-rose-500 hover:bg-rose-600 text-white px-4 py-2 rounded-full shadow-md focus:outline-none transition">
-          Quick Delete
-        </button>
       </div>
     </div>
   </header>
@@ -142,6 +137,5 @@
 
 
     
-  <script src="/src/scripts/putAnime.js"></script>
 </body>
 </html>
